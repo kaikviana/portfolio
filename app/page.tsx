@@ -334,7 +334,7 @@ export default function Home() {
       </section>
 
       <footer className="py-8 text-center text-slate-600 text-sm font-medium relative z-10 pb-12">
-        Kaik Sousa © 2026. <span className="text-slate-500 font-mono text-xs">ALL_SYSTEMS_GO</span>
+        Kaik Sousa © 2026. <span className="text-slate-500 font-mono text-xs">KS SOFT</span>
       </footer>
 
       <AnimatePresence>
