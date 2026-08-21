@@ -218,8 +218,8 @@ export default function Home() {
             onClick={() => setSelectedProject(projectsData.kssoft)}
             className="cursor-pointer group bg-slate-900/40 backdrop-blur-md border border-blue-900/40 rounded-[2rem] p-6 hover:border-blue-500/80 transition-all duration-500 hover:shadow-[0_15px_40px_rgba(37,99,235,0.15)] flex flex-col md:flex-row gap-8"
           >
-            <div className="w-full md:w-1/2 h-64 md:h-auto rounded-3xl overflow-hidden relative border border-slate-700/50">
-              <img src={projectsData.kssoft.image} alt="Tela inicial do KS SOFT" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <div className="w-full md:w-1/2 h-auto rounded-3xl overflow-hidden relative border border-slate-700/50 bg-[#020617] flex items-center justify-center">
+              <img src={projectsData.kssoft.image} alt="Tela inicial do KS SOFT" className="w-full h-auto object-contain transition-transform duration-1000 group-hover:scale-110" />
               <div className="absolute inset-0 bg-blue-950/40 group-hover:bg-transparent transition-colors duration-500 mix-blend-overlay"></div>
               <div className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 shadow-lg">
                 <ExternalLink size={18} />
