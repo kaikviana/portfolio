@@ -2,9 +2,22 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Terminal, Database, Code, X, ExternalLink, ChevronRight, Server, Layout, Mail, ArrowUpRight, Zap } from 'lucide-react';
+import { Terminal, Code, X, ExternalLink, ChevronRight, Server, Mail, ArrowUpRight, Zap } from 'lucide-react';
 
-const projectsData = {
+// Tipagem estrita para a Vercel aprovar o TypeScript
+type ProjectData = {
+  id: string;
+  title: string;
+  subtitle: string;
+  tags: string[];
+  problem: string;
+  solution: string;
+  architecture: string[];
+  image: string;
+  highlight: boolean;
+};
+
+const projectsData: Record<string, ProjectData> = {
   kssoft: {
     id: 'kssoft',
     title: 'KS SOFT',
@@ -64,7 +77,7 @@ const projectsData = {
 };
 
 export default function Home() {
-  const [selectedProject, setSelectedProject] = useState<any | null>(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
   const [typedTitle, setTypedTitle] = useState("");
   
   const fullTitle = "Analista de Projetos Júnior.";
@@ -245,7 +258,6 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Card 3: Hub de Links com fundo escuro e object-contain */}
             <motion.div 
               whileHover={{ y: -5 }}
               onClick={() => setSelectedProject(projectsData.linkbio)}
