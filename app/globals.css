@@ -5,10 +5,16 @@
   --foreground: #f8fafc;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
-  /* Brilho radial no fundo simulando uma luz azul no topo da página */
   background-image: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
   background-attachment: fixed;
 }
@@ -24,4 +30,29 @@ body {
     linear-gradient(to bottom, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
   mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
+/* ========================================================
+   CUSTOMIZAÇÃO DA BARRA DE ROLAGEM VERTICAL (WINDOWS/CHROME)
+   ======================================================== */
+
+/* Define a largura da barra */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Fundo da trilha da barra (mesmo azul ultra escuro do site) */
+::-webkit-scrollbar-track {
+  background: #020714; 
+}
+
+/* O "pegador" da barra */
+::-webkit-scrollbar-thumb {
+  background: #1e3a8a; /* Azul escuro (blue-900) */
+  border-radius: 10px;
+}
+
+/* Quando passa o mouse por cima da barra */
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6; /* Azul aceso (blue-500) */
 }
