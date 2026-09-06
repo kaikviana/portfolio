@@ -343,36 +343,42 @@ export default function Home() {
                 </div>
               </motion.div>
 
-              {/* CATÁLOGO DIGITAL (MOCKUP FRONTAL PREMIUM 100% NÍTIDO) */}
+              {/* CATÁLOGO DIGITAL (MOCKUP FRONTAL RESPONSIVO) */}
               <motion.div 
                 whileHover={{ scale: 1.02, y: -4 }}
                 onClick={() => setSelectedProject(projectsData.catalogo)}
                 className="cursor-pointer group bg-[#061126]/60 backdrop-blur-md border border-blue-900/30 rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-5 flex flex-col hover:bg-[#081836]/80 hover:border-blue-500/50 transition-all duration-300 ring-1 ring-blue-500/10 hover:ring-blue-500/20 shadow-xl"
               >
+                {/* Aqui está o pulo do gato: scale-95 para mobile e pr-4 para o celular não cortar */}
                 <div className="w-full h-40 md:h-48 rounded-xl md:rounded-2xl overflow-hidden mb-4 md:mb-6 relative border border-blue-900/30 bg-[#020510] shadow-inner flex items-center justify-center p-2">
-                  
-                  {/* Container dos Aparelhos (Frontais, limpos e realistas) */}
-                  <div className="relative w-full max-w-[260px] flex items-end justify-center mt-4 group-hover:-translate-y-1 transition-transform duration-700">
+                  <div className="relative w-full max-w-[260px] flex items-end justify-center mt-4 group-hover:-translate-y-1 transition-transform duration-700 scale-95 sm:scale-100 pr-6 md:pr-4">
                     
                     {/* MacBook Pro Premium */}
-                    <div className="w-[90%] relative flex flex-col items-center">
-                      <div className="w-full aspect-[16/10] bg-[#020617] p-1.5 md:p-2 rounded-t-xl md:rounded-t-2xl border-[3px] border-[#1E293B] shadow-2xl relative z-10 overflow-hidden">
-                        <img src="/catalogo.png" alt="Desktop" className="w-full h-full object-cover object-top rounded-sm md:rounded-md relative z-10" />
+                    <div className="w-[95%] relative flex flex-col items-center">
+                      <div className="w-full aspect-[16/10] bg-[#020617] p-1.5 md:p-2 rounded-t-xl border-[2.5px] border-[#1E293B] shadow-2xl relative z-10 overflow-hidden">
+                        <img 
+                          src="/catalogo.png" 
+                          alt="Desktop" 
+                          className="w-full h-full object-cover object-top rounded-sm relative z-10" 
+                          onError={(e) => {
+                            const t = e.target as HTMLImageElement;
+                            if (t.src.endsWith('.png')) t.src = '/catalogo.JPG';
+                            else if (t.src.endsWith('.JPG')) t.src = '/catalogo.jpeg';
+                          }}
+                        />
                       </div>
-                      {/* Base Elegante MacBook */}
-                      <div className="w-[115%] h-2.5 md:h-3 bg-gradient-to-b from-[#94A3B8] to-[#475569] rounded-b-md md:rounded-b-lg relative z-20 shadow-[0_15px_20px_rgba(0,0,0,0.6)] flex justify-center border-t border-white/20">
-                        <div className="w-1/5 h-1 bg-[#1E293B] rounded-b-sm opacity-60"></div>
+                      <div className="w-[115%] h-2 bg-gradient-to-b from-[#94A3B8] to-[#475569] rounded-b-md relative z-20 shadow-[0_15px_20px_rgba(0,0,0,0.6)] flex justify-center border-t border-white/20">
+                        <div className="w-1/5 h-[3px] bg-[#1E293B] rounded-b-sm opacity-60"></div>
                       </div>
                     </div>
 
-                    {/* iPhone 14/15 Premium */}
-                    <div className="absolute -bottom-3 -right-2 w-[26%] aspect-[9/19.5] z-30 bg-[#020617] p-1 md:p-1.5 rounded-[1.2rem] border-[3px] border-[#334155] shadow-[-15px_10px_25px_rgba(0,0,0,0.8)] group-hover:-translate-y-2 transition-transform duration-700 overflow-hidden">
-                      {/* Notch Dynamic Island */}
-                      <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-[40%] h-1 md:h-1.5 bg-[#020617] rounded-full z-40"></div>
+                    {/* iPhone 14/15 Premium (Fica perfeitamente ao lado sem cortar) */}
+                    <div className="absolute -bottom-2 -right-2 md:-right-1 w-[26%] aspect-[9/19.5] z-30 bg-[#020617] p-1 md:p-1.5 rounded-xl border-[2.5px] border-[#334155] shadow-[-15px_10px_25px_rgba(0,0,0,0.8)] group-hover:-translate-y-2 transition-transform duration-700 overflow-hidden">
+                      <div className="absolute top-1 left-1/2 -translate-x-1/2 w-[40%] h-[3px] bg-[#020617] rounded-full z-40"></div>
                       <img 
                         src="/catalogo-mobile.jpeg" 
                         alt="Mobile" 
-                        className="w-full h-full object-cover object-top rounded-[0.8rem] relative z-10" 
+                        className="w-full h-full object-cover object-top rounded-lg relative z-10" 
                         onError={(e) => {
                           const t = e.target as HTMLImageElement;
                           if (t.src.endsWith('.jpeg')) t.src = '/catalogo-mobile.jpg';
@@ -465,24 +471,30 @@ export default function Home() {
               {selectedProject.id === 'catalogo' ? (
                 <div className="w-full h-56 sm:h-72 md:h-[32rem] relative bg-[#020510] border-b border-blue-900/30 shrink-0 p-4 md:p-8 flex items-center justify-center overflow-hidden">
                   
-                  {/* Container dos Aparelhos (Frontais) */}
-                  <div className="relative w-full max-w-sm md:max-w-xl flex items-end justify-center mt-6 z-10">
+                  <div className="relative w-full max-w-sm md:max-w-xl flex items-end justify-center mt-6 z-10 scale-95 md:scale-100">
                     
                     {/* MacBook Pro Premium Gigante */}
                     <div className="w-[85%] md:w-[80%] relative flex flex-col items-center">
-                      <div className="w-full aspect-[16/10] bg-[#020617] p-2 md:p-3 rounded-t-xl md:rounded-t-2xl border-[3px] md:border-[5px] border-[#1E293B] shadow-2xl relative z-20 overflow-hidden">
-                        <img src="/catalogo.png" alt="Catalogo Desktop" className="w-full h-full object-cover object-top rounded-md md:rounded-lg relative z-10" />
+                      <div className="w-full aspect-[16/10] bg-[#020617] p-2 md:p-3 rounded-t-xl md:rounded-t-2xl border-[3px] md:border-[4px] border-[#1E293B] shadow-2xl relative z-20 overflow-hidden">
+                        <img 
+                          src="/catalogo.png" 
+                          alt="Catalogo Desktop" 
+                          className="w-full h-full object-cover object-top rounded-md md:rounded-lg relative z-10" 
+                          onError={(e) => {
+                            const t = e.target as HTMLImageElement;
+                            if (t.src.endsWith('.png')) t.src = '/catalogo.JPG';
+                            else if (t.src.endsWith('.JPG')) t.src = '/catalogo.jpeg';
+                          }}
+                        />
                       </div>
-                      {/* Base Elegante MacBook */}
-                      <div className="w-[112%] h-4 md:h-5 bg-gradient-to-b from-[#94A3B8] to-[#475569] rounded-b-lg md:rounded-b-xl relative z-30 shadow-[0_25px_50px_rgba(0,0,0,0.9)] flex justify-center border-t border-white/20">
+                      <div className="w-[112%] h-3 md:h-5 bg-gradient-to-b from-[#94A3B8] to-[#475569] rounded-b-lg md:rounded-b-xl relative z-30 shadow-[0_25px_50px_rgba(0,0,0,0.9)] flex justify-center border-t border-white/20">
                         <div className="w-1/5 h-1.5 md:h-2 bg-[#1E293B] rounded-b-md opacity-60"></div>
                       </div>
                     </div>
 
                     {/* iPhone 14/15 Premium Gigante */}
-                    <div className="absolute -bottom-6 right-0 md:-right-2 w-[26%] md:w-[22%] aspect-[9/19.5] z-40 bg-[#020617] p-1.5 md:p-2.5 rounded-[1.2rem] md:rounded-[2rem] border-[3px] md:border-[4px] border-[#334155] shadow-[-20px_15px_40px_rgba(0,0,0,0.9)] overflow-hidden">
-                      {/* Notch Dynamic Island */}
-                      <div className="absolute top-2.5 md:top-3.5 left-1/2 -translate-x-1/2 w-[40%] h-1.5 md:h-2 bg-[#020617] rounded-full z-40"></div>
+                    <div className="absolute -bottom-4 right-1 md:-right-2 w-[26%] md:w-[22%] aspect-[9/19.5] z-40 bg-[#020617] p-1.5 md:p-2.5 rounded-[1.2rem] md:rounded-[2rem] border-[3px] md:border-[4px] border-[#334155] shadow-[-20px_15px_40px_rgba(0,0,0,0.9)] overflow-hidden">
+                      <div className="absolute top-2 md:top-3.5 left-1/2 -translate-x-1/2 w-[40%] h-1.5 md:h-2 bg-[#020617] rounded-full z-40"></div>
                       <img 
                         src="/catalogo-mobile.jpeg" 
                         alt="Catalogo Mobile" 
